@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>CalendarApp</title>
-    <%= csrf_meta_tags %>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title><%= full_title(yield(:title))%></title>
+  <%= render 'layouts/rails_default' %>
+</head>
+<body>
+  <%= render 'layouts/header' %>
+  <div class="container">
+  <%= yield %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+  <%= render 'layouts/footer'%>
+  </div>
+</body>
 </html>
