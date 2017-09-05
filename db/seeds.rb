@@ -8,7 +8,7 @@ require "date"
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 # a
-Date.today.upto(Date.today+100) do |d|
+Date.today.beginning_of_month.upto(Date.today.end_of_month) do |d|
   
  Calendar.create!(
                    date: d,
