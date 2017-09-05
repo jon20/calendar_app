@@ -10,7 +10,9 @@ end
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
+# Use devise
+gem 'devise'
+# Use mysql2
 gem 'mysql2'
 # Use jquery
 gem 'jquery-rails'
