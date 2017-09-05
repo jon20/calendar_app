@@ -1,2 +1,10 @@
 <h1>Calendar#mainpage</h1>
 <p>Find me in app/views/calendar/mainpage.html.erb</p>
+<% @day.each do |n| %>
+<% date = n.date%>
+<% if(date.wday == 0)%>
+<%= puts(" ") %>
+<% end %>
+<%= date.day.to_s %>
+<% end %>
+
