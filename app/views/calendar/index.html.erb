@@ -1,7 +1,10 @@
 <h1>Calendar#mainpage</h1>
 <p>Find me in app/views/calendar/mainpage.html.erb</p>
 
-<button class="btn"><span class="glyphicon glyphicon-chevron-left "></span></button>
+
+<%= link_to({controller: 'calendar', action: 'previous', month: @date.month, year: @date.year}) do%>
+<span class="glyphicon glyphicon-chevron-left" ></span>
+<% end %>
 
 <%= link_to({controller: 'calendar', action: 'next', month: @date.month, year: @date.year}) do%>
 <span class="glyphicon glyphicon-chevron-right" ></span>

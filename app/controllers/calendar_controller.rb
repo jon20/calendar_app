@@ -24,5 +24,16 @@ class CalendarController < ApplicationController
       render template: "/calendar/index"
   end
 
+  def previous
+      @arr = []
+
+      @date = Date.new(params[:year].to_i, params[:month].to_i - 1, 1)
+
+      @arr = Calendar.create_calendar(@date)
+
+      render template: "/calendar/index"
+
+  end
+
 
 end

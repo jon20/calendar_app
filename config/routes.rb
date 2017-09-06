@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :calendar do
     collection do
       get 'next'
+      get 'previous'
     end
   end
 
