@@ -14,6 +14,8 @@ gem 'sqlite3'
 gem 'devise'
 # Use mysql2
 gem 'mysql2'
+
+gem 'pry'
 # Use jquery
 gem 'jquery-rails'
 # Use bootstrap

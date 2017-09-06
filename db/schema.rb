@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20170905025001) do
 
   create_table "calendars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "month"
     t.date "date"
     t.date "holiday"
     t.datetime "created_at", null: false

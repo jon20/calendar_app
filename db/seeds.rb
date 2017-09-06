@@ -7,10 +7,12 @@ require "date"
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-# a
-Date.today.beginning_of_month.upto(Date.today.end_of_month) do |d|
+# 
+Date.new(2017, 1, 1).upto(Date.new(2017, 12, 31)) do |d|
   
- Calendar.create!(
+  Calendar.create!(
+                   month: d.month,
                    date: d,
-                   holiday: d)
+                   holiday: d
+                   )
 end
