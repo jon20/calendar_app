@@ -1,13 +1,12 @@
 class CalendarController < ApplicationController
-  before_action :sign_in_required, only: [:mainpage]
+  before_action :sign_in_required
   def index
-      @arr = []
+      @schedule = Schedule.new
+  
       if @date.nil?
         @date = Date.today
       end
-      @arr  =   Calendar.create_calendar(@date)
-
-
+      @arr =   Calendar.create_calendar(@date, current_user)
   end
 
   def show
@@ -16,6 +15,7 @@ class CalendarController < ApplicationController
 
   def next
       @arr = []
+      @schedule = Schedule.new
 
       @date = Date.new(params[:year].to_i, params[:month].to_i + 1, 1)
 
@@ -26,6 +26,7 @@ class CalendarController < ApplicationController
 
   def previous
       @arr = []
+      @schedule = Schedule.new
 
       @date = Date.new(params[:year].to_i, params[:month].to_i - 1, 1)
 

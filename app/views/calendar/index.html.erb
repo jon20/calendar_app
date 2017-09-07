@@ -1,35 +1,48 @@
-<h1>Calendar#mainpage</h1>
-<p>Find me in app/views/calendar/mainpage.html.erb</p>
-
-
-<%= link_to({controller: 'calendar', action: 'previous', month: @date.month, year: @date.year}) do%>
-<span class="glyphicon glyphicon-chevron-left" ></span>
-<% end %>
-
-<%= link_to({controller: 'calendar', action: 'next', month: @date.month, year: @date.year}) do%>
-<span class="glyphicon glyphicon-chevron-right" ></span>
-<% end %>
-
-
-<table class="table table-hover table-bordered">
-  <tr>
-    <td>Sunday</td>
-    <td>Monday</td>
-    <td>Tuesday</td>
-    <td>Wednesday</td>
-    <td>Thursday</td>
-    <td>Friday</td>
-    <td>Saturday</td>
-  </tr>
-  <% @arr.each do |s| %>
-  <tr>
-    <% s.each do |f| %>
-    <td><%= f %></td>
+<div class="row">
+  <div class="col-md-6"> 
     
+
+
+    <%= link_to({controller: 'calendar', action: 'previous', month: @date.month, year: @date.year}) do%>
+      <span class="glyphicon glyphicon-chevron-left" ></span>
     <% end %>
-    
-  </tr>
-  <% end %>
-</table>
 
+    <%= link_to({controller: 'calendar', action: 'next', month: @date.month, year: @date.year}) do%>
+      <span class="glyphicon glyphicon-chevron-right" ></span>
+    <% end %>
 
+    <%= @date.month %>
+
+    <table class="table table-hover table-bordered">
+      <tr>
+        <td>Sunday</td>
+        <td>Monday</td>
+        <td>Tuesday</td>
+        <td>Wednesday</td>
+        <td>Thursday</td>
+        <td>Friday</td>
+        <td>Saturday</td>
+      </tr>
+      <% @arr.each do |s| %>
+      <tr>
+        <% s.each do |y|%>
+          <% if(y[:date].nil? )%>
+          <td></td>
+          <% else %>
+          <td>
+          <%= y[:date].date.day %><br>
+            <% if(y[:schedule].present? )%>
+            <%= y[:schedule].title %>
+            <% end %>
+          
+          </td>
+          <% end %>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="col-md-4"><%= render template: 'schedule/index' %>
+  </div>
+</div>

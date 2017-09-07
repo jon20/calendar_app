@@ -16,10 +16,16 @@ gem 'devise'
 gem 'mysql2'
 
 gem 'pry'
+
 # Use jquery
 gem 'jquery-rails'
 # Use bootstrap
-gem 'bootstrap-sass'
+ 
+gem 'momentjs-rails'
+
+gem 'bootstrap3-datetimepicker-rails'
+
+gem 'bootstrap-sass' 
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

@@ -1,0 +1,15 @@
+  <div class="form-group">    
+      <%= form_for(@schedule) do |f| %>
+      <%= f.label :date%><br>
+      <%= f.text_field :date, class: 'datepicker'%><br>
+      <%= f.label :title%><br>
+      <%= f.text_field :title, class: "form-control" ,size: "30"%><br>
+  
+      <%= f.label :text%>
+      <%= f.text_area :body , rows: "10", class: "form-control"%>
+
+      <%= f.submit "Post", class: "btn "%>
+  </div>
+
+<% end %>
+
