@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/help' , to: 'static_pages#help'
 
   #get '/mainpage', to: 'calendar#mainpage'
-  
+  get '/calendar/edit', to: 'calendar#edit'
 
   resources :calendar do
     collection do

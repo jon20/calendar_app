@@ -7,8 +7,11 @@ class SchedulesController < ApplicationController
 
   def create
     @schedule = Schedule.new(schedule_params)
-    @schedule.user_id = current_user.id
-    @schedule.save
+    if @schedule.user_id = current_user.id
+        unless @schedule.save
+        binding.pry
+        end
+    end
     if @date.nil?
       @date = Date.today
     end
@@ -16,6 +19,7 @@ class SchedulesController < ApplicationController
     render "calendar/index"
 
   end
+
 
   private
     def schedule_params

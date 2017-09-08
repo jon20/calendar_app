@@ -1,0 +1,15 @@
+<div class="text-center jumbotron">
+  <div class="container">
+    <h2>Date:<%= @tmp.date%></h2><br>
+    <h2>title:<%= @tmp.title%></h2><br>
+    <h2>body:<%= @tmp.body%></h2><br>
+
+  </div>
+
+  
+</div>
+
+
+<%= link_to("Back", calendar_index_path, class: "btn btn-primary") %>
+ 
+<%= link_to("Destroy", calendar_path, method: :delete, data: { confirm: "OK?" }, class: "btn btn-primary") %>

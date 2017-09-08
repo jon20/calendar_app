@@ -11,6 +11,7 @@
       <span class="glyphicon glyphicon-chevron-right" ></span>
     <% end %>
 
+    <%= @date.year %>
     <%= @date.month %>
 
     <table class="table table-hover table-bordered">
@@ -32,7 +33,7 @@
           <td>
           <%= y[:date].date.day %><br>
             <% if(y[:schedule].present? )%>
-            <%= y[:schedule].title %>
+            <%= link_to(y[:schedule].title, calendar_path(id: y[:schedule].id)) %>
             <% end %>
           
           </td>
@@ -41,8 +42,8 @@
       </tr>
       <% end %>
     </table>
+    <%= link_to "send", calendar_index_path , class: "btn btn-lg btn-primary"%> 
   </div>
-
   <div class="col-md-4"><%= render template: 'schedule/index' %>
   </div>
 </div>

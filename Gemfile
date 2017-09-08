@@ -17,6 +17,8 @@ gem 'mysql2'
 
 gem 'pry'
 
+gem 'slack-api'
+
 # Use jquery
 gem 'jquery-rails'
 # Use bootstrap
