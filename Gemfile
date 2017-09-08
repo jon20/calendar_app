@@ -19,6 +19,8 @@ gem 'pry'
 
 gem 'slack-api'
 
+gem 'devise-bootstrap-views'
+
 # Use jquery
 gem 'jquery-rails'
 # Use bootstrap

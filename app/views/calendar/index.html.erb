@@ -3,6 +3,10 @@
     
 
 
+    <div class="center">
+      <%= @date.year %>年
+      <%= @date.month %>月
+    </div>
     <%= link_to({controller: 'calendar', action: 'previous', month: @date.month, year: @date.year}) do%>
       <span class="glyphicon glyphicon-chevron-left" ></span>
     <% end %>
@@ -10,9 +14,6 @@
     <%= link_to({controller: 'calendar', action: 'next', month: @date.month, year: @date.year}) do%>
       <span class="glyphicon glyphicon-chevron-right" ></span>
     <% end %>
-
-    <%= @date.year %>
-    <%= @date.month %>
 
     <table class="table table-hover table-bordered">
       <tr>
@@ -33,7 +34,11 @@
           <td>
           <%= y[:date].date.day %><br>
             <% if(y[:schedule].present? )%>
-            <%= link_to(y[:schedule].title, calendar_path(id: y[:schedule].id)) %>
+              <% if(y[:schedule].title.match(/.{4}/)) %>
+                <%= link_to(y[:schedule].title.match(/.{3}/).to_s + "...", calendar_path(id: y[:schedule].id)) %>
+              <% else %>
+                <%= link_to(y[:schedule].title, calendar_path(id: y[:schedule].id)) %>
+              <% end %>
             <% end %>
           
           </td>
@@ -42,8 +47,12 @@
       </tr>
       <% end %>
     </table>
-    <%= link_to "send", calendar_index_path , class: "btn btn-lg btn-primary"%> 
+    <%= weather["title"]%>
+    <img src=<%= weather.dig("forecasts", 1, "image", "url")%>><p><br>
+    <% @ws[1..3].each do |a| %>
+      <%= a.to_s + "。"%>
+    <% end %>
   </div>
-  <div class="col-md-4"><%= render template: 'schedule/index' %>
+  <div class="col-md-6"><%= render template: 'schedule/index' %>
   </div>
 </div>

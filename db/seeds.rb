@@ -8,7 +8,7 @@ require "date"
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 # 
-Date.new(2017, 1, 1).upto(Date.new(2018, 12, 31)) do |d|
+Date.new(2016, 1, 1).upto(Date.new(2018, 12, 31)) do |d|
   
   Calendar.create!(
                    month: d.month,

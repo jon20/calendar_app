@@ -9,14 +9,17 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(schedule_params)
     if @schedule.user_id = current_user.id
         unless @schedule.save
-        binding.pry
+          
+          flash[:warning] = "Faild"
+        else
+          flash[:success] = "saved"
         end
     end
     if @date.nil?
       @date = Date.today
     end
     @arr = Calendar.create_calendar(@date, current_user)
-    render "calendar/index"
+    redirect_to calendar_index_url
 
   end
 

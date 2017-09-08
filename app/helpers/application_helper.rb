@@ -7,5 +7,12 @@ module ApplicationHelper
       page_title
     end
   end
+  def weather
+    require "json"
+    require "open-uri"
+  
+    url="http://weather.livedoor.com/forecast/webservice/json/v1?city=400010"
 
+    JSON.parse(open(url).read)
+  end
 end
